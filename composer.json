@@ -1,0 +1,38 @@
+{
+    "name": "artcustomer/gemini-api-client",
+    "description": "Gemini Api client in PHP",
+    "keywords": ["api"],
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "David Massenot",
+            "email": "david@artcustomer.fr"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Artcustomer/apiunit"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "artcustomer/apiunit": "^1.0.0"
+    },
+    "require-dev": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "Artcustomer\\GeminiClient\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x"
+        }
+    }
+}

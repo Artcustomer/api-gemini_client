@@ -5,7 +5,11 @@ namespace Artcustomer\GeminiClient;
 use Artcustomer\ApiUnit\Gateway\AbstractApiGateway;
 use Artcustomer\ApiUnit\Http\IApiResponse;
 use Artcustomer\GeminiClient\Client\ApiClient;
+use Artcustomer\GeminiClient\Connector\AudioConnector;
+use Artcustomer\GeminiClient\Connector\ImageConnector;
 use Artcustomer\GeminiClient\Connector\ModelConnector;
+use Artcustomer\GeminiClient\Connector\TextConnector;
+use Artcustomer\GeminiClient\Connector\VideoConnector;
 use Artcustomer\GeminiClient\Utils\ApiInfos;
 
 /**
@@ -14,7 +18,11 @@ use Artcustomer\GeminiClient\Utils\ApiInfos;
 class GeminiApiGateway extends AbstractApiGateway
 {
 
+    private AudioConnector $audioConnector;
+    private ImageConnector $imageConnector;
     private ModelConnector $modelConnector;
+    private TextConnector $textConnector;
+    private VideoConnector $videoConnector;
 
     private string $apiKey;
     private bool $availability;
@@ -59,6 +67,26 @@ class GeminiApiGateway extends AbstractApiGateway
     }
 
     /**
+     * Get AudioConnector instance
+     *
+     * @return AudioConnector
+     */
+    public function getAudioConnector(): AudioConnector
+    {
+        return $this->audioConnector;
+    }
+
+    /**
+     * Get ImageConnector instance
+     *
+     * @return ImageConnector
+     */
+    public function getImageConnector(): ImageConnector
+    {
+        return $this->imageConnector;
+    }
+
+    /**
      * Get ModelConnector instance
      *
      * @return ModelConnector
@@ -69,13 +97,37 @@ class GeminiApiGateway extends AbstractApiGateway
     }
 
     /**
+     * Get TextConnector instance
+     *
+     * @return TextConnector
+     */
+    public function getTextConnector(): TextConnector
+    {
+        return $this->textConnector;
+    }
+
+    /**
+     * Get VideoConnector instance
+     *
+     * @return VideoConnector
+     */
+    public function getVideoConnector(): VideoConnector
+    {
+        return $this->videoConnector;
+    }
+
+    /**
      * Setup connectors
      *
      * @return void
      */
     private function setupConnectors(): void
     {
+        $this->audioConnector = new AudioConnector($this->client);
+        $this->imageConnector = new ImageConnector($this->client);
         $this->modelConnector = new ModelConnector($this->client);
+        $this->textConnector = new TextConnector($this->client);
+        $this->videoConnector = new VideoConnector($this->client);
     }
 
     /**

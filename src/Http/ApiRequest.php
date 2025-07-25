@@ -18,12 +18,16 @@ class ApiRequest extends CurlApiRequest
 
     /**
      * Constructor
+     *
+     * @param array $data
      */
-    public function __construct()
+    public function __construct(array $data = [])
     {
         parent::__construct();
 
-        $this->secured = true;
+        $this->initParams();
+        $this->hydrate($data);
+        $this->extendParams();
     }
 
     /**
@@ -111,6 +115,27 @@ class ApiRequest extends CurlApiRequest
     }
 
     /**
+     * Init parameters
+     *
+     * @return void
+     */
+    protected function initParams(): void
+    {
+        $this->secured = true;
+        $this->body = $this->body ?? [];
+    }
+
+    /**
+     * Extend parameters
+     *
+     * @return void
+     */
+    protected function extendParams(): void
+    {
+
+    }
+
+    /**
      * @return string
      */
     public function getUri(): string
@@ -125,5 +150,14 @@ class ApiRequest extends CurlApiRequest
         );
 
         return parent::getUri();
+    }
+
+    /**
+     * @param string $uri
+     * @return void
+     */
+    public function setUri(string $uri): void
+    {
+        $this->uri = $uri;
     }
 }

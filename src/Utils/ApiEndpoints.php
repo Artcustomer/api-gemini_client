@@ -12,6 +12,7 @@ class ApiEndpoints
     public const MODELS = 'models';
     public const PREDICT = 'predict';
     public const PREDICT_LONG_RUNNING = 'predictLongRunning';
+    public const STREAM_GENERATE_CONTENT = 'streamGenerateContent';
     public const UPLOAD = 'upload';
 
 }

@@ -15,6 +15,8 @@ use Artcustomer\GeminiClient\Utils\ApiEndpoints;
 class TextConnector extends AbstractConnector
 {
 
+    public const PARAM_ALT = 'alt';
+
     /**
      * Constructor
      *
@@ -37,6 +39,28 @@ class TextConnector extends AbstractConnector
         $data = [
             'method' => ApiMethodTypes::POST,
             'endpoint' => sprintf('%s:%s', $model, ApiEndpoints::GENERATE_CONTENT),
+            'body' => $params
+        ];
+        $request = $this->client->getRequestFactory()->instantiate(ModelRequest::class, [$data]);
+
+        return $this->client->executeRequest($request);
+    }
+
+    /**
+     * Generate stream content
+     *
+     * @param string $model
+     * @param array $params
+     * @return IApiResponse
+     */
+    public function streamGenerate(string $model, array $params = []): IApiResponse
+    {
+        $data = [
+            'method' => ApiMethodTypes::POST,
+            'endpoint' => sprintf('%s:%s', $model, ApiEndpoints::STREAM_GENERATE_CONTENT),
+            'query' => [
+                self::PARAM_ALT => 'sse'
+            ],
             'body' => $params
         ];
         $request = $this->client->getRequestFactory()->instantiate(ModelRequest::class, [$data]);

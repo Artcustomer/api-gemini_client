@@ -14,6 +14,9 @@ use Artcustomer\GeminiClient\Http\ModelRequest;
 class ModelConnector extends AbstractConnector
 {
 
+    public const PARAM_PAGESIZE = 'pageSize';
+    public const PARAM_PAGETOKEN = 'pageToken';
+
     /**
      * Constructor
      *
@@ -32,7 +35,10 @@ class ModelConnector extends AbstractConnector
     public function list(): IApiResponse
     {
         $data = [
-            'method' => ApiMethodTypes::GET
+            'method' => ApiMethodTypes::GET,
+            'query' => [
+                self::PARAM_PAGESIZE => 1000,
+            ]
         ];
         $request = $this->client->getRequestFactory()->instantiate(ModelRequest::class, [$data]);
 

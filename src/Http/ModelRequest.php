@@ -17,11 +17,7 @@ class ModelRequest extends ApiRequest
      */
     public function __construct(array $data = [])
     {
-        parent::__construct();
-
-        $this->initParams();
-        $this->hydrate($data);
-        $this->extendParams();
+        parent::__construct($data);
     }
 
     /**
@@ -36,25 +32,5 @@ class ModelRequest extends ApiRequest
         if (!empty($this->endpoint)) {
             $this->uri = sprintf('%s/%s', $this->uri, $this->endpoint);
         }
-    }
-
-    /**
-     * Init parameters
-     *
-     * @return void
-     */
-    private function initParams(): void
-    {
-        $this->body = $this->body ?? [];
-    }
-
-    /**
-     * Extend parameters
-     *
-     * @return void
-     */
-    private function extendParams(): void
-    {
-
     }
 }

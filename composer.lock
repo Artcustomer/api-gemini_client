@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "artcustomer/apiunit",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Artcustomer/apiunit.git",
-                "reference": "1afa55e4b393674f447823b7fb6206dea36b1346"
+                "reference": "c107ffad44b4aa04b0d1aaeafdbdc678d58704dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Artcustomer/apiunit/zipball/1afa55e4b393674f447823b7fb6206dea36b1346",
-                "reference": "1afa55e4b393674f447823b7fb6206dea36b1346",
+                "url": "https://api.github.com/repos/Artcustomer/apiunit/zipball/c107ffad44b4aa04b0d1aaeafdbdc678d58704dc",
+                "reference": "c107ffad44b4aa04b0d1aaeafdbdc678d58704dc",
                 "shasum": ""
             },
             "require": {
@@ -48,10 +48,10 @@
                 "api"
             ],
             "support": {
-                "source": "https://github.com/Artcustomer/apiunit/tree/1.0.3",
+                "source": "https://github.com/Artcustomer/apiunit/tree/1.0.4",
                 "issues": "https://github.com/Artcustomer/apiunit/issues"
             },
-            "time": "2025-02-14T08:42:27+00:00"
+            "time": "2025-07-25T19:46:14+00:00"
         }
     ],
     "packages-dev": [],
